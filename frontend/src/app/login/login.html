@@ -1,0 +1,80 @@
+<div class="page">
+  <div class="blob b1"></div>
+  <div class="blob b2"></div>
+  <div class="blob b3"></div>
+
+  <svg class="waves" viewBox="0 0 1440 400" preserveAspectRatio="none" fill="none" stroke="#fff" stroke-width="1.2" aria-hidden="true">
+    <path opacity=".10" d="M0 300 C240 200 480 380 720 280 S1200 180 1440 270"/>
+    <path opacity=".14" d="M0 330 C260 240 500 400 760 310 S1200 220 1440 300"/>
+    <path opacity=".10" d="M0 360 C280 280 520 420 800 340 S1220 260 1440 330"/>
+    <path opacity=".08" d="M0 270 C220 170 460 340 700 240 S1180 140 1440 240"/>
+  </svg>
+
+  <main class="card-login">
+    <div class="text-center mb-4">
+      <i class="bi bi-bank2 logo"></i>
+      <div class="brand">NOVABANK</div>
+      <h1 class="title">Logowanie</h1>
+      <p class="subtitle">Wprowadź swoje dane, aby zalogować się do konta</p>
+    </div>
+
+    @if (success) {
+      <div class="alert alert-success" role="status">Zalogowano pomyślnie</div>
+    }
+
+    <form [formGroup]="form" (ngSubmit)="submit()" novalidate>
+      <label for="login" class="form-label fw-bold">ID</label>
+      <div class="input-group input-group-lg mb-1">
+        <span class="input-group-text"><i class="bi bi-person"></i></span>
+        <input id="login" type="text" class="form-control" formControlName="login"
+               placeholder="Wpisz identyfikator użytkownika" autocomplete="username"
+               [class.is-invalid]="login.touched && login.invalid">
+      </div>
+      @if (login.touched && login.invalid) {
+        <div class="field-error">Podaj identyfikator użytkownika</div>
+      }
+
+      <label for="password" class="form-label fw-bold mt-3">Hasło</label>
+      <div class="input-group input-group-lg mb-1">
+        <span class="input-group-text"><i class="bi bi-lock"></i></span>
+        <input id="password" [type]="showPassword ? 'text' : 'password'" class="form-control"
+               formControlName="password" placeholder="Wpisz swoje hasło"
+               autocomplete="current-password"
+               [class.is-invalid]="password.touched && password.invalid">
+        <button type="button" class="btn btn-eye"
+                [attr.aria-label]="showPassword ? 'Ukryj hasło' : 'Pokaż hasło'"
+                (click)="showPassword = !showPassword">
+          <i class="bi" [class.bi-eye]="!showPassword" [class.bi-eye-slash]="showPassword"></i>
+        </button>
+      </div>
+      @if (password.touched && password.invalid) {
+        <div class="field-error">Hasło musi mieć min. 6 znaków</div>
+      }
+
+      @if (error) {
+        <div class="alert alert-danger mt-3 mb-0 py-2" role="alert">{{ error }}</div>
+      }
+
+      <button type="submit" class="btn btn-main w-100 mt-4" [disabled]="loading">
+        @if (loading) {
+          <span class="spinner-border spinner-border-sm me-2" aria-hidden="true"></span>Logowanie...
+        } @else {
+          Zaloguj się <i class="bi bi-arrow-right ms-1"></i>
+        }
+      </button>
+    </form>
+
+    <div class="divider"><span>lub</span></div>
+
+    <button type="button" class="btn btn-outline-mobile w-100">
+      <i class="bi bi-shield-check me-2"></i>Logowanie przez bankowość mobilną
+    </button>
+
+    <div class="d-flex justify-content-between mt-4 links">
+      <a href="#">Nie pamiętasz hasła?</a>
+      <a href="#">Załóż konto</a>
+    </div>
+  </main>
+
+  <p class="footer">© NovaBank · Połączenie szyfrowane SSL</p>
+</div>

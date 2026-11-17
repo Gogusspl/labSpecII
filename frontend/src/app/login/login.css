@@ -1,0 +1,57 @@
+:host { display: block; }
+
+.page {
+  position: relative; overflow: hidden; min-height: 100vh;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  padding: 48px 24px; box-sizing: border-box;
+  background: linear-gradient(135deg, #1e1b4b 0%, #3b1f8f 50%, #6d28d9 100%);
+  font-family: 'Plus Jakarta Sans', Arial, sans-serif;
+}
+.blob { position: absolute; border-radius: 50%; filter: blur(110px); }
+.b1 { width: 520px; height: 520px; background: #a78bfa; opacity: .45; top: -160px; left: -120px; }
+.b2 { width: 480px; height: 480px; background: #22d3ee; opacity: .28; bottom: -160px; right: -100px; }
+.b3 { width: 360px; height: 360px; background: #f472b6; opacity: .25; top: 30%; right: 12%; }
+.waves { position: absolute; left: 0; bottom: 0; width: 100%; height: 340px; }
+
+.card-login {
+  position: relative; width: 100%; max-width: 420px;
+  background: #fff; border-radius: 24px; padding: 40px 36px; box-sizing: border-box;
+  box-shadow: 0 30px 80px rgba(15, 10, 60, .45); color: #1e1b4b;
+}
+.logo { font-size: 52px; color: #5b3fd6; line-height: 1; }
+.brand { font-size: 14px; font-weight: 700; color: #5b3fd6; letter-spacing: .04em; margin-top: 6px; }
+.title { font-size: 28px; font-weight: 800; margin: 8px 0 4px; }
+.subtitle { font-size: 14px; color: #4b5563; margin: 0; }
+
+.input-group-text { background: #fff; border-right: 0; color: #6b7280; border-radius: 12px 0 0 12px; }
+.form-control { border-left: 0; font-size: 15px; border-radius: 0 12px 12px 0; }
+.form-control:focus { box-shadow: none; border-color: #dee2e6; }
+.input-group:focus-within { box-shadow: 0 0 0 3px #ddd6fe; border-radius: 12px; }
+.btn-eye { background: #fff; border: 1px solid #dee2e6; border-left: 0; color: #6b7280; border-radius: 0 12px 12px 0; }
+.field-error { color: #b91c1c; font-size: 13px; }
+
+.btn-main {
+  height: 52px; border: 0; border-radius: 12px; background: #5b3fd6; color: #fff;
+  font-weight: 700; box-shadow: 0 8px 20px rgba(91, 63, 214, .35);
+}
+.btn-main:hover, .btn-main:focus-visible { background: #4a31b8; color: #fff; }
+.btn-main:disabled { background: #5b3fd6; opacity: .7; color: #fff; }
+
+.divider { display: flex; align-items: center; gap: 12px; margin: 20px 0; font-size: 13px; color: #4b5563; }
+.divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: #e5e7eb; }
+
+.btn-outline-mobile {
+  height: 48px; border: 1px solid #cbd5e1; border-radius: 12px; background: #fff;
+  color: #1e1b4b; font-size: 14px; font-weight: 600;
+}
+.btn-outline-mobile i { color: #5b3fd6; }
+.btn-outline-mobile:hover { background: #f5f3ff; }
+
+.links { font-size: 14px; font-weight: 600; }
+.links a { color: #5b3fd6; }
+.footer { position: relative; margin: 24px 0 0; font-size: 13px; color: #ddd6fe; text-align: center; }
+
+@media (max-width: 520px) {
+  .page { padding: 16px; }
+  .card-login { padding: 28px 20px; }
+}
